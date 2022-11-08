@@ -35,16 +35,50 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true }, (error, client) =>
   //   console.log('Unable to fetch: ', error);
   // });
 
-  db.collection('tasks').findOne({ _id: new ObjectId('6368b3e6cb4cf28f256a3f27') }).then((task) => {
-    console.log(task);
-  }).catch((error) => {
-    console.log('Unablo to fetch, error: ', error);
-  })
+  // db.collection('tasks').findOne({ _id: new ObjectId('6368b3e6cb4cf28f256a3f27') }).then((task) => {
+  //   console.log(task);
+  // }).catch((error) => {
+  //   console.log('Unablo to fetch, error: ', error);
+  // })
 
-  db.collection('tasks').find({ completed: false }).toArray().then((tasks) => {
-    console.log(tasks);
-  }).catch((error) => {
-    console.log('Unablo to fetch, error: ', error);
-  })
+  // db.collection('tasks').find({ completed: false }).toArray().then((tasks) => {
+  //   console.log(tasks);
+  // }).catch((error) => {
+  //   console.log('Unablo to fetch, error: ', error);
+  // })
 
+  // db.collection('users').updateOne({
+  //   _id: new ObjectId('6368ae8f4c250cead41dc7df')
+  // },
+  // {
+  //   $inc: {
+  //     age: 1
+  //   }
+  // }
+  // ).then((result) => {
+  //   console.log(result);
+  // }).catch((error) => {
+  //   console.log(error);
+  // })
+
+
+  // db.collection('tasks').updateMany({ completed: false }, { $set: { completed: true} }).then((result) => {
+  //   console.log(result);
+  // }).catch((error) => {
+  //   console.log(error);
+  // });
+
+  // db.collection('users').deleteMany({
+  //   age: 38
+  // }).then(result => {
+  //   console.log(result);
+  // }).catch(error => {
+  //   console.log(error)
+  // })
+
+  db.collection('tasks').deleteOne({ description: 'Take out the garbage' }).then(result => {
+    console.log(result);
+  }).catch(error => {
+    console.log(error);
+  })
 });
